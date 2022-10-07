@@ -18,7 +18,7 @@ class FirstViewController: UIViewController {
     
     @IBAction func downButton(_ sender: Any) {
         
-        let fourthViewController = storyboard!.instantiateViewController(withIdentifier: "fourth_vc") as! FirstViewController
+        let fourthViewController = storyboard!.instantiateViewController(withIdentifier: "fourth_vc") as! FourthViewController
         
         navigationController?.pushViewController(fourthViewController, animated: false)
     }
