@@ -8,10 +8,20 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+   
+    var isKeyObtained = false
     
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
+
     @IBAction func rightButton(_ sender: Any) {
         
         let secondViewController = storyboard!.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
+ 
+        secondViewController.isKeyObtained = isKeyObtained
         
         navigationController?.pushViewController(secondViewController, animated: false)
     }
@@ -30,13 +40,12 @@ class FirstViewController: UIViewController {
         counter += 1
         if counter == attemptsNumber {
             
-            isLoose = true
+            statusLabel.isHidden = false
+            statusLabel.text = "You loose!"
             
-            let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
+            rightButton.isHidden = true
+            downButton.isHidden = true
             
-            rootViewController.statusRefresh()
-            
-            navigationController?.pushViewController(rootViewController, animated: false)
         }
         
         // Do any additional setup after loading the view.

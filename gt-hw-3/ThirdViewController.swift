@@ -8,10 +8,18 @@
 import UIKit
 
 class ThirdViewController: UIViewController {
-
+    
+    var isKeyObtained = false
+    
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     @IBAction func upButton(_ sender: Any) {
         
         let secondViewController = storyboard!.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
+ 
+        secondViewController.isKeyObtained = isKeyObtained
         
         navigationController?.pushViewController(secondViewController, animated: false)
         
@@ -31,13 +39,11 @@ class ThirdViewController: UIViewController {
         counter += 1
         if counter == attemptsNumber {
             
-            isLoose = true
+            statusLabel.isHidden = false
+            statusLabel.text = "You loose!"
             
-            let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
-            
-            rootViewController.statusRefresh()
-            
-            navigationController?.pushViewController(rootViewController, animated: false)
+            upButton.isHidden = true
+            leftButton.isHidden = true
   
         }
 

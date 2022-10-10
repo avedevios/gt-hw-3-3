@@ -12,6 +12,8 @@ class SecondViewController: UIViewController {
     var isKeyObtained = false
     
     //weak var delegate: MainViewControllerDelegate?
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
     
     @IBOutlet weak var treasureLabel: UILabel!
     
@@ -34,31 +36,27 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
-        
         if isKeyObtained {
             
-            isWin = true
+            treasureLabel.text = "You win!"
             
-            rootViewController.statusRefresh()
-            
-            navigationController?.pushViewController(rootViewController, animated: false)
-            
+            leftButton.isHidden = true
+            downButton.isHidden = true
             
         } else {
             
             counter += 1
             if counter == attemptsNumber {
                 
-                isLoose = true
-               
-                rootViewController.statusRefresh()
+                treasureLabel.text = "You loose!"
                 
-                navigationController?.pushViewController(rootViewController, animated: false)
+                leftButton.isHidden = true
+                downButton.isHidden = true
                 
+            } else {
+                
+                treasureLabel.text = "You have not a key, but do not give up!"
             }
-            
-            treasureLabel.text = "You have not a key, but do not give up!"
             
         }
         

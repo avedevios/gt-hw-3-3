@@ -9,11 +9,15 @@ import UIKit
 
 class FourthViewController: UIViewController {
     
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var keyLabel: UILabel!
     
     @IBAction func upButton(_ sender: Any) {
         
         let firstViewController = storyboard!.instantiateViewController(withIdentifier: "first_vc") as! FirstViewController
+        
+        firstViewController.isKeyObtained = true
         
         navigationController?.pushViewController(firstViewController, animated: false)
     }
@@ -21,41 +25,23 @@ class FourthViewController: UIViewController {
     @IBAction func rightButton(_ sender: Any) {
         let thirdViewController = storyboard!.instantiateViewController(withIdentifier: "third_vc") as! ThirdViewController
         
+        thirdViewController.isKeyObtained = true
+        
         navigationController?.pushViewController(thirdViewController, animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
-//
-//        rootViewController.counter += 1
-//        if rootViewController.counter == rootViewController.attemptsNumber {
-//
-//            rootViewController.isLoose = true
-//
-//            navigationController?.popToRootViewController(animated: false)
-//        }
-//
-//        rootViewController.isKeyObtained = true
-       
-        let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
-        
         counter += 1
         if counter == attemptsNumber {
             
-            isLoose = true
-           
-            rootViewController.statusRefresh()
+            keyLabel.text = "You loose!"
             
-            navigationController?.pushViewController(rootViewController, animated: false)
+            upButton.isHidden = true
+            rightButton.isHidden = true
+            
         }
-       
-        keyLabel.text = "You got the key!"
-        
-        let secondViewController = storyboard!.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
-        
-        secondViewController.isKeyObtained = true
 
         // Do any additional setup after loading the view.
     }
