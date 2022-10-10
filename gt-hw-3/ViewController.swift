@@ -7,14 +7,15 @@
 
 import UIKit
 
+var isWin = false
+var isLoose = false
+
+var counter = 0
+let attemptsNumber = 6
+
 class ViewController: UIViewController {
     
     var isKeyObtained = false
-    var isWin = false
-    var isLoose = false
-    
-    var counter = 0
-    let attemptsNumber = 6
     
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -51,19 +52,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isWin {
-            statusLabel.isHidden = false
-            statusLabel.textColor = UIColor.green
-            statusLabel.text = "You WIN"
-        } else if isLoose {
-            statusLabel.isHidden = false
-            statusLabel.textColor = UIColor.red
-            statusLabel.text = "Game OVER"
-        }
-        
         // Do any additional setup after loading the view.
     }
-
-
+    
+    func statusRefresh() {
+        
+        //guard statusLabel != nil else {return}
+        
+        if isWin {
+            statusLabel?.isHidden = false
+            statusLabel?.textColor = UIColor.green
+            statusLabel?.text = "You WIN"
+        } else if isLoose {
+            statusLabel?.isHidden = false
+            statusLabel?.textColor = UIColor.red
+            statusLabel/.text = "Game OVER"
+        }
+    }
 }
 

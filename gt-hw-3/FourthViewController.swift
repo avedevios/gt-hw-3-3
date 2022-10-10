@@ -27,19 +27,35 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
+//
+//        rootViewController.counter += 1
+//        if rootViewController.counter == rootViewController.attemptsNumber {
+//
+//            rootViewController.isLoose = true
+//
+//            navigationController?.popToRootViewController(animated: false)
+//        }
+//
+//        rootViewController.isKeyObtained = true
+       
         let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
         
-        rootViewController.counter += 1
-        if rootViewController.counter == rootViewController.attemptsNumber {
+        counter += 1
+        if counter == attemptsNumber {
             
-            rootViewController.isLoose = true
+            isLoose = true
+           
+            rootViewController.statusRefresh()
             
-            navigationController?.popToRootViewController(animated: false)
+            navigationController?.pushViewController(rootViewController, animated: false)
         }
-        
-        rootViewController.isKeyObtained = true
-        
+       
         keyLabel.text = "You got the key!"
+        
+        let secondViewController = storyboard!.instantiateViewController(withIdentifier: "second_vc") as! SecondViewController
+        
+        secondViewController.isKeyObtained = true
 
         // Do any additional setup after loading the view.
     }

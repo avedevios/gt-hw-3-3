@@ -27,17 +27,20 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
-        
-        rootViewController.counter += 1
-        if rootViewController.counter == rootViewController.attemptsNumber {
+       
+        counter += 1
+        if counter == attemptsNumber {
             
-            rootViewController.isLoose = true
+            isLoose = true
             
-            navigationController?.popToRootViewController(animated: false)
+            let rootViewController = storyboard!.instantiateViewController(withIdentifier: "root_vc") as! ViewController
+            
+            rootViewController.statusRefresh()
+            
+            navigationController?.pushViewController(rootViewController, animated: false)
+  
         }
-        
+
         // Do any additional setup after loading the view.
     }
     

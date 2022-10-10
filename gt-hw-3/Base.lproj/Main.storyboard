@@ -107,6 +107,7 @@
                         <viewLayoutGuide key="safeArea" id="b5v-ID-MCY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1Gm-xq-noC"/>
                     <connections>
                         <outlet property="keyLabel" destination="grd-Pb-nFY" id="YeE-5s-nH6"/>
                     </connections>
@@ -145,6 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="Zt1-Ch-dxs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="af8-Fo-Y6a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xqg-e5-aWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,6 +228,7 @@
                         <viewLayoutGuide key="safeArea" id="8xy-S9-Hck"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Mnf-H7-S2D"/>
                     <connections>
                         <outlet property="treasureLabel" destination="evy-s2-UNo" id="DrK-Os-D0O"/>
                     </connections>
